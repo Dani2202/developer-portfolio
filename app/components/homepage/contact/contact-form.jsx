@@ -35,8 +35,21 @@ function ContactForm() {
 
     try {
       setIsLoading(true);
+      
+      // Check if environment variable is available
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+      if (!appUrl) {
+        toast.error("Contact functionality not configured. Please contact me directly via email.");
+        setUserInput({
+          name: "",
+          email: "",
+          message: "",
+        });
+        return;
+      }
+
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`,
+        `${appUrl}/api/contact`,
         userInput
       );
 
@@ -47,7 +60,8 @@ function ContactForm() {
         message: "",
       });
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      const errorMessage = error?.response?.data?.message || "Error sending message. Please try again later.";
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     };

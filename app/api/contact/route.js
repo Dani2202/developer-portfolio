@@ -3,19 +3,32 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 // Create and configure Nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, 
-  auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY, 
-  },
-});
+const createTransporter = () => {
+  const emailAddress = process.env.EMAIL_ADDRESS;
+  const gmailPasskey = process.env.GMAIL_PASSKEY;
+  
+  if (!emailAddress || !gmailPasskey) {
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, 
+    auth: {
+      user: emailAddress,
+      pass: gmailPasskey, 
+    },
+  });
+};
 
 // Helper function to send a message via Telegram
 async function sendTelegramMessage(token, chat_id, message) {
+  if (!token || !chat_id) {
+    return false;
+  }
+
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
   try {
     const res = await axios.post(url, {
@@ -47,6 +60,12 @@ const generateEmailTemplate = (name, email, userMessage) => `
 
 // Helper function to send an email via Nodemailer
 async function sendEmail(payload, message) {
+  const transporter = createTransporter();
+  if (!transporter) {
+    console.error('Email configuration not found');
+    return false;
+  }
+
   const { name, email, message: userMessage } = payload;
   
   const mailOptions = {
@@ -74,32 +93,39 @@ export async function POST(request) {
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chat_id = process.env.TELEGRAM_CHAT_ID;
 
-    // Validate environment variables
-    if (!token || !chat_id) {
-      return NextResponse.json({
-        success: false,
-        message: 'Telegram token or chat ID is missing.',
-      }, { status: 400 });
-    }
-
     const message = `New message from ${name}\n\nEmail: ${email}\n\nMessage:\n\n${userMessage}\n\n`;
 
-    // Send Telegram message
-    const telegramSuccess = await sendTelegramMessage(token, chat_id, message);
+    // Try to send Telegram message (optional)
+    let telegramSuccess = false;
+    if (token && chat_id) {
+      telegramSuccess = await sendTelegramMessage(token, chat_id, message);
+    }
 
-    // Send email
-    const emailSuccess = await sendEmail(payload, message);
+    // Try to send email (optional)
+    let emailSuccess = false;
+    if (process.env.EMAIL_ADDRESS && process.env.GMAIL_PASSKEY) {
+      emailSuccess = await sendEmail(payload, message);
+    }
 
-    if (telegramSuccess && emailSuccess) {
+    // If neither is configured, return error
+    if (!token && !process.env.EMAIL_ADDRESS) {
+      return NextResponse.json({
+        success: false,
+        message: 'Contact functionality not configured. Please contact me directly via email.',
+      }, { status: 503 });
+    }
+
+    // If at least one method succeeded, return success
+    if (telegramSuccess || emailSuccess) {
       return NextResponse.json({
         success: true,
-        message: 'Message and email sent successfully!',
+        message: 'Message sent successfully!',
       }, { status: 200 });
     }
 
     return NextResponse.json({
       success: false,
-      message: 'Failed to send message or email.',
+      message: 'Failed to send message. Please try again later.',
     }, { status: 500 });
   } catch (error) {
     console.error('API Error:', error.message);
