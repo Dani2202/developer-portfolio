@@ -1,0 +1,97 @@
+export const projectsData = [
+    {
+        id: 1,
+        name: 'GOVOTR - SoftwareOrbits',
+        description: "Developed a comprehensive shareholder voting platform with multiple user roles: Transfer Agents, Issuers, and Clearing Brokers. Implemented role-based conditional rendering and created custom npm packages for reusable components. Built complex custom tables and UI components using Material-UI with advanced functionality. Built vote collection and management systems with real-time tracking and comprehensive event management capabilities.",
+        tools: ['React.js', 'TypeScript', 'Material-UI', 'Node.js', 'Express.js', 'npm packages'],
+        role: 'Software Engineer',
+        code: '',
+        demo: '',
+    },
+    {
+        id: 2,
+        name: 'Hexaware TensAI - Koderlabs',
+        description: 'Built an AI-driven platform for creating custom dashboards and generating PDFs using OpenAI\'s API. Enhanced AI chatbots functionality and integrated advanced AI capabilities. Implemented dynamic dashboard creation with real-time data visualization.',
+        tools: ['React.js', 'Next.js', 'AI Copilot Kit', 'OpenAI API', 'Material-UI'],
+        role: 'Software Engineer',
+        code: '',
+        demo: '',
+    },
+    {
+        id: 3,
+        name: 'EZLiving - Koderlabs',
+        description: 'Developed a comprehensive management system for securely creating, storing, and managing wills. Implemented secure authentication and authorization mechanisms for sensitive legal documents. Built user-friendly interfaces for complex legal document management workflows.',
+        tools: ['React.js', 'Next.js', 'Nest.js', 'RTK Query', 'Redux Toolkit'],
+        code: '',
+        demo: '',
+        role: 'Software Engineer',
+    },
+    {
+        id: 4,
+        name: 'Graze UI, Graze Admin, and Caterease Admin - Concept Recall',
+        description: "Developed a food ordering product-based project, utilizing RTK Query for efficient state management. Managed Graze UI for customers, Graze Admin for admin, and Caterease Admin for the support team of Horizon. Handled client communications and interactions, updating on daily standups, ensuring their requirements were met effectively.",
+        tools: ['React.js', 'TypeScript', 'RTK Query', 'Redux', 'Material-UI'],
+        code: '',
+        demo: 'https://grazedemo-dev.usegraze.com/',
+        role: 'Software Engineer',
+    },
+    {
+        id: 5,
+        name: 'KidzBloom - Concept Recall',
+        description: 'Worked on a project designed for use in schools, facilitating the monitoring of student activities. Implemented both Attribute-Based Access Control (ABAC) and Role-Based Access Control (RBAC) for secure access management. Developed UI and API integration for various features of the KidzBloom project.',
+        tools: ['React.js', 'TypeScript', 'Redux', 'ABAC', 'RBAC', 'Firebase'],
+        code: '',
+        demo: 'https://bloomkidzlanding.web.app/',
+        role: 'Software Engineer',
+    },
+    {
+        id: 6,
+        name: 'Rushmoor Knights Academy - Concept Recall',
+        description: 'Contributed to an academy project for hiring players and providing scoring. Used Next.js to develop a role-based platform with roles for players, scouts, and coaches. Refactored the existing code-base for better maintainability and performance.',
+        tools: ['Next.js', 'TypeScript', 'Redux', 'Material-UI', 'Role-based Platform'],
+        code: '',
+        demo: 'https://www.rushmoorknightsacademy.com/',
+        role: 'Software Engineer',
+    },
+    {
+        id: 7,
+        name: 'FlorCargo - Freelance',
+        description: 'Developed and maintained a cargo service platform. Implemented features for tracking and managing cargo shipments. Implemented ABAC (Attribute-based access control) and RBAC (Role-based access control). Enhanced user experience by integrating real-time updates and notifications.',
+        tools: ['React.js', 'TypeScript', 'Ant Design', 'ABAC', 'RBAC'],
+        code: '',
+        demo: 'https://www.app.flocargo.com/',
+        role: 'Freelance Developer',
+    },
+    {
+        id: 8,
+        name: 'Doyen Autos - Freelance',
+        description: 'Created a website for an autos garage. Designed and implemented a system for handling client quotations.',
+        tools: ['React.js', 'TypeScript', 'Material-UI'],
+        code: '',
+        demo: 'https://www.doyenautos.co.uk/',
+        role: 'Freelance Developer',
+    },
+    {
+        id: 9,
+        name: 'Anicca AI - Freelance',
+        description: 'Developed an AI tool that acts as a Personal Phone Concierge. Implemented features for taking orders and reservations. Enhanced customer satisfaction by providing efficient and responsive service.',
+        tools: ['React.js', 'TypeScript', 'Material-UI', 'AI Integration'],
+        code: '',
+        demo: 'https://anicca.bot/',
+        role: 'Freelance Developer',
+    }
+];
+
+
+// Do not remove any property.
+// Leave it blank instead as shown below
+
+// {
+//     id: 1,
+//     name: '',
+//     description: "",
+//     tools: [],
+//     role: '',
+//     code: '',
+//     demo: '',
+// },
