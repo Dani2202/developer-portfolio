@@ -8,37 +8,38 @@ const DEFAULT_BTN_CLS =
 const SCROLL_THRESHOLD = 50;
 
 const ScrollToTop = () => {
-  const [btnCls, setBtnCls] = useState(DEFAULT_BTN_CLS);
-  const [isClient, setIsClient] = useState(false);
+  // const [btnCls, setBtnCls] = useState(DEFAULT_BTN_CLS);
+  // const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
 
-  useEffect(() => {
-    if (!isClient) return;
+  // useEffect(() => {
+  //   if (!isClient) return;
 
-    const handleScroll = () => {
-      if (window.scrollY > SCROLL_THRESHOLD) {
-        setBtnCls(DEFAULT_BTN_CLS.replace(" hidden", ""));
-      } else {
-        setBtnCls(DEFAULT_BTN_CLS + " hidden");
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll, { passive: true });
-    };
-  }, [isClient]);
+  //   const handleScroll = () => {
+  //     if (window.scrollY > SCROLL_THRESHOLD) {
+  //       setBtnCls(DEFAULT_BTN_CLS.replace(" hidden", ""));
+  //     } else {
+  //       setBtnCls(DEFAULT_BTN_CLS + " hidden");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll, { passive: true });
+  //   };
+  // }, [isClient]);
 
   const onClickBtn = () => {
-    if (isClient) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    console.log("TEST")
+    // if (isClient) {
+    //   window.scrollTo({ top: 0, behavior: "smooth" });
+    // }
   };
 
   return (
-    <button className={btnCls} onClick={onClickBtn}>
+    <button  onClick={onClickBtn}>
       <FaArrowUp />
     </button>
   );
