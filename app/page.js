@@ -26,18 +26,10 @@ import Projects from "./components/homepage/projects";
 // };
 
 export default function Home() {
-  // const blogs = await getData();
-
   return (
     <div>
-      <HeroSection />
-      <AboutSection />
-      <Experience />
-      {/* <Skills /> */}
-      <Projects />
-      <Education />
-      {/* <Blog blogs={blogs} /> */}
-      <ContactSection />
+      <h1>Test Page</h1>
+      <p>This is a minimal test to isolate the SSR issue.</p>
     </div>
   )
 };
