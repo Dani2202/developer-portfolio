@@ -6,17 +6,15 @@ import { personalData } from "@/utils/data/personal-data";
 // import ContactSection from "./components/homepage/contact";
 // import Education from "./components/homepage/education";
 // import Experience from "./components/homepage/experience";
-// import HeroSection from "./components/homepage/hero-section";
+import HeroSection from "./components/homepage/hero-section";
 // import Projects from "./components/homepage/projects";
 // import Skills from "./components/homepage/skills";
 
 export default function Home() {
   return (
     <div>
-      <h1>Test Page</h1>
-      <p>Testing to isolate SSR issue</p>
-      {/* <HeroSection />
-      <AboutSection />
+      <HeroSection />
+      {/* <AboutSection />
       <Experience />
       <Skills />
       <Projects />
