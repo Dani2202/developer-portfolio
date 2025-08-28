@@ -28,7 +28,7 @@ export const projectsData = [
     },
     {
         id: 4,
-        name: 'Graze UI, Graze Admin, and Caterease Admin - Concept Recall',
+        name: 'Graze UI - Concept Recall',
         description: "Developed a food ordering product-based project, utilizing RTK Query for efficient state management. Managed Graze UI for customers, Graze Admin for admin, and Caterease Admin for the support team of Horizon. Handled client communications and interactions, updating on daily standups, ensuring their requirements were met effectively.",
         tools: ['React.js', 'TypeScript', 'RTK Query', 'Redux', 'Material-UI'],
         code: '',
