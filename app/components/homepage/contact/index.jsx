@@ -7,6 +7,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { IoLogoGithub, IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import ContactForm from './contact-form';
+import { SiUpwork } from "react-icons/si";
 
 function ContactSection() {
   return (
@@ -60,13 +61,13 @@ function ContactSection() {
                 size={48}
               />
             </Link>
-            {/* Commented out Twitter and Stack Overflow links
-            <Link target="_blank" href={personalData.twitter}>
-              <FaXTwitter
+            <Link target="_blank" href={personalData.upwork}>
+              <SiUpwork
                 className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
                 size={48}
               />
             </Link>
+            {/* Commented out Twitter and Stack Overflow links
             <Link target="_blank" href={personalData.stackOverflow}>
               <FaStackOverflow
                 className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"

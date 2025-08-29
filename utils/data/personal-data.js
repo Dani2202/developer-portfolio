@@ -11,7 +11,7 @@ export const personalData = {
   linkedIn: 'https://www.linkedin.com/in/daniyal-qureshi-448996198/',
   twitter: 'https://twitter.com/daniyalqureshi',
   stackOverflow: 'https://stackoverflow.com/users/daniyal-qureshi',
-  leetcode: "https://leetcode.com/daniyalqureshi/",
+  upwork: "https://www.upwork.com/freelancers/~0107d7b56678ef07df",
   devUsername: "daniyalqureshi",
   resume: "https://drive.google.com/file/d/1BvkVABgUWxPov0tRym64T4htF80YEKnx/view?usp=drive_link"
 }
